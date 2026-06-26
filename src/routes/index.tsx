@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, FileText, Receipt, Wallet, BarChart3, ShieldCheck, Sparkles, Star, ChevronDown, CheckCircle2, Sun, Moon } from "lucide-react";
+import { ArrowRight, FileText, Receipt, Wallet, BarChart3, ShieldCheck, Sparkles, ChevronDown, CheckCircle2, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -17,12 +17,6 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const testimonials = [
-    { name: "Sarah Chen", role: "Freelance Designer", company: "DesignCraft Studio", content: "Quoinv saved me hours every month. My clients love the professional quotations and invoices.", rating: 5 },
-    { name: "James Rodriguez", role: "CEO", company: "TechFlow Solutions", content: "We switched from FreshBooks to Quoinv. Better pricing, cleaner UI, and the quotation-to-invoice flow is brilliant.", rating: 5 },
-    { name: "Aisha Patel", role: "Accountant", company: "Patel & Co.", content: "Multi-tenant support and role-based access make it perfect for our accounting firm. Highly recommend.", rating: 5 },
-  ];
 
   const faqs = [
     { q: "Is Quoinv free to use?", a: "Yes! Our Free plan includes 3 invoices and 3 quotations per month, forever. No credit card required to start." },
@@ -43,7 +37,6 @@ function Landing() {
           </Link>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
             <a href="#features" className="hover:text-foreground">Features</a>
-            <a href="#testimonials" className="hover:text-foreground">Testimonials</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
             <a href="#faq" className="hover:text-foreground">FAQ</a>
           </nav>
@@ -189,35 +182,6 @@ function Landing() {
               <Button className="mt-4 w-full gap-2">Convert to invoice <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section id="testimonials" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Trusted by teams worldwide</h2>
-          <p className="mt-3 text-muted-foreground">See why businesses love Quoinv.</p>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <div key={t.name} className="rounded-xl border bg-card p-6 shadow-[var(--shadow-card)]">
-              <div className="flex gap-1">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">"{t.content}"</p>
-              <div className="mt-6 flex items-center gap-3 border-t pt-4">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-                  {t.name.split(" ").map(n => n[0]).join("")}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
